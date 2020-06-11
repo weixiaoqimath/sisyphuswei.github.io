@@ -20,28 +20,32 @@
     var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Xiaoqi&#39;s Website">
-<meta property="og:url" content="http://yoursite.com/index.html">
+  <meta name="description" content="Introduction A filtration \(C&#x3D;\{C_r | r \in \mathbb R\}\) is a group of finite simplicial complex indexed over real numbers such that each \(K_a\) is a simplicial complex and \(C_a \subset C_b\) for \">
+<meta property="og:type" content="article">
+<meta property="og:title" content="test">
+<meta property="og:url" content="http://yoursite.com/2020/06/10/short_note/index.html">
 <meta property="og:site_name" content="Xiaoqi&#39;s Website">
+<meta property="og:description" content="Introduction A filtration \(C&#x3D;\{C_r | r \in \mathbb R\}\) is a group of finite simplicial complex indexed over real numbers such that each \(K_a\) is a simplicial complex and \(C_a \subset C_b\) for \">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-06-10T13:47:54.000Z">
+<meta property="article:modified_time" content="2020-06-10T19:10:37.760Z">
 <meta property="article:author" content="Xiaoqi Wei">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://yoursite.com/">
+<link rel="canonical" href="http://yoursite.com/2020/06/10/short_note/">
 
 
 <script id="page-configurations">
   // https://hexo.io/docs/variables.html
   CONFIG.page = {
     sidebar: "",
-    isHome : true,
-    isPost : false,
+    isHome : false,
+    isPost : true,
     lang   : 'en'
   };
 </script>
 
-  <title>Xiaoqi's Website</title>
+  <title>test | Xiaoqi's Website</title>
   
 
 
@@ -144,89 +148,10 @@
         <div class="content-wrap">
           
 
-          <div class="content index posts-expand">
+          <div class="content post posts-expand">
             
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/06/10/test/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Xiaoqi Wei">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Xiaoqi's Website">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/06/10/test/" class="post-title-link" itemprop="url">test</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-              
-
-              <time title="Created: 2020-06-10 09:47:54 / Modified: 15:00:42" itemprop="dateCreated datePublished" datetime="2020-06-10T09:47:54-04:00">2020-06-10</time>
-            </span>
-
-          
-
-        </div>
-      </header>
 
     
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="introduction">Introduction</h1>
-<p>Sometimes we just use <span class="math inline">\(C_i\)</span> and <span class="math inline">\(C_{i+1}\)</span> to emphasis order. The filtration has infinite version but in this note we focus on finite filtration. A finite filtration can be seen as a series of simplex addition, so we often represented as a list and feed it into algorithm.</p>
-<p>%\begin{ex} % This filtration (insert a diagram) can be represented as python list [([a], 0), ([b], 0), ([c], 1), ([d, 1]), % ([a, b], 1), ([b, c], 1), ([c, d], 2), ([a, d], 2), ([a, c], 3), ([a, b, c], 4), ([a, c, d], 5)]<br />
-%\end{ex}</p>
-<p>For each <span class="math inline">\(K_i\)</span> one can compute its homology. The inclusion map from <span class="math inline">\(C_i\)</span> to <span class="math inline">\(C_{i+1}\)</span> induce homomorphism between homology groups. These homology groups and induced homomorphisms is one example of the so called persistent module.</p>
-<p>According to [Computing Persistent Homology, Zomorodian, Carlsson], we can equip <span class="math inline">\(R(t)\)</span> with a graded ring structure and equip persistence module with a graded module structure over <span class="math inline">\(R(t)\)</span>. Then by commutative algebra we obtain a classification theorem for finite type persistence module. This classification is indeed a decomposition of persistence module into tiny building blocks called interval modules (as in [Chazal et al.]) or intervals. The intuition behind interval is quite simple: as new simplices adding to a complex, new class may born for new cycle, and old class may die for new boundary. The life of a class is encode in its interval. For example, suppose we have two points <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span>, and a new simplex <span class="math inline">\([a, b]\)</span> is added. The existing connected components <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> are merged together. We may say <span class="math inline">\(a\)</span> or <span class="math inline">\(b\)</span> is dead because of <span class="math inline">\([a, b]\)</span>. Or imagine two circles of a cylinder. The cylinder merges two circles together and reduce the number of classes from two to one.</p>
-<p>We first fix some notations. The finite filtration is thought of as adding one simplex <span class="math inline">\(\sigma_i\)</span> at step <span class="math inline">\(i\)</span> (<span class="math inline">\(1 \leq i \leq n\)</span>), which is done in time <span class="math inline">\(t_i\)</span>, and <span class="math inline">\(\{t_i\}\)</span> is a non-decreasing sequence. Denote the module generated by <span class="math inline">\(\{\sigma_1,...,\sigma_i\}\)</span> as <span class="math inline">\(C^i\)</span>, containing all subcomplexes of <span class="math inline">\(C^i\)</span>. For a element in <span class="math inline">\(C^i\)</span>, its leading term is said to be the <span class="math inline">\(\sigma\)</span> with the largest index. For example <span class="math inline">\(\sigma_1 + \sigma_2 + \sigma_3 \in C^3\)</span> has leading term <span class="math inline">\(\sigma_3\)</span>.<br />
-For simplicity, throughout this section we use <span class="math inline">\(\intg_2\)</span> coefficient.</p>
-<p>Rather than give a proof of the above theorem, we introduce here an algorithm that computes the new basis. The algorithm appears in [Edelsbruner, Harer] and [Zomorodian <span class="math inline">\(\&amp;\)</span> Carlsson] in a slightly differnt form. Our running example is [(a, 0), (b, 0), (c, 1), (d, 1), (ab, 1), (bc, 1), (cd, 2), (ad, 2), (ac, 3), (abc, 4), (acd, 5)]. We perform the algorithm in details and it will be clear that a new basis is produced.</p>
-<p>The matrix of <span class="math inline">\(\partial_1\)</span> is</p>
-<p><span class="math inline">\(\bordermatrix{ &amp; ab,1 &amp; bc,1 &amp; cd,2 &amp; ad,2 &amp; ac,3 \cr  d, 1 &amp; 0 &amp; 0 &amp; \textbf{1} &amp; 1 &amp; 0 \cr  c, 1 &amp; 0 &amp; \textbf{1} &amp; 1 &amp; 0 &amp; 1 \cr  b, 0 &amp; \textbf{1} &amp; 1 &amp; 0 &amp; 0 &amp; 0 \cr  a, 0 &amp; 1 &amp; 0 &amp; 0 &amp; 1 &amp; 1 \cr}\)</span>.</p>
-<p>Any row or column where bold 1 resides is called pivot row or pivot column. The simplex above a pivot colume is said to be pivot simplex. Now apply column gaussian elimination. The leftmost nonzero element in row <span class="math inline">\(d\)</span> is in column <span class="math inline">\(cd\)</span>. Use column <span class="math inline">\(cd\)</span> to eliminate elements on the right, and then move column <span class="math inline">\(cd\)</span> to the leftmost, we get</p>
-<p><span class="math inline">\(\bordermatrix{ &amp; cd,2 &amp; ab,1 &amp; bc,1 &amp; ad+cd,2 &amp; ac,3 \cr  d, 1 &amp; \textbf{1} &amp; 0 &amp; 0 &amp; 0 &amp; 0 \cr  c, 1 &amp; 1 &amp; 0 &amp; \textbf{1} &amp; 1 &amp; 1 \cr  b, 0 &amp; 0 &amp; \textbf{1} &amp; 1 &amp; 0 &amp; 0 \cr  a, 0 &amp; 0 &amp; 1 &amp; 0 &amp; 1 &amp; 1 \cr}\)</span>.</p>
-<p>Do the same for column <span class="math inline">\(bc\)</span>, we get</p>
-<p><span class="math inline">\(\bordermatrix{ &amp; cd,2 &amp; bc,1 &amp; ab,1 &amp; ad+cd+bc,2 &amp; ac+bc,3 \cr  d, 1 &amp; \textbf{1} &amp; 0 &amp; 0 &amp; 0 &amp; 0 \cr  c, 1 &amp; 1 &amp; \textbf{1} &amp; 0 &amp; 0 &amp; 0 \cr  b, 0 &amp; 0 &amp; 1 &amp; \textbf{1} &amp; 1 &amp; 1 \cr  a, 0 &amp; 0 &amp; 0 &amp; 1 &amp; 1 &amp; 1 \cr}\)</span>.</p>
-<p>Do the same for <span class="math inline">\(ab\)</span>. Now the matrix of <span class="math inline">\(\partial_1\)</span> becomes</p>
-<p><span class="math inline">\(\bordermatrix{ &amp; cd,2 &amp; bc,1 &amp; ab,1 &amp; z_1,2 &amp; z_2,3 \cr  d,1 &amp; \textbf{1} &amp; 0 &amp; 0 &amp; 0 &amp; 0 \cr  c,1 &amp; 1 &amp; \textbf{1} &amp; 0 &amp; 0 &amp; 0 \cr  b,0 &amp; 0 &amp; 1 &amp; \textbf{1} &amp; 0 &amp; 0 \cr  a,0 &amp; 0 &amp; 0 &amp; 1 &amp; 0 &amp; 0 \cr}\)</span>,</p>
-<p>where <span class="math inline">\(z_1 = ad+cd+bc+ab\)</span>, and <span class="math inline">\(z_2 = ac+bc+ab\)</span>. <span class="math inline">\(z_1, z_2\)</span> are going to be used for the computation of <span class="math inline">\(\partial_2\)</span>. This is a column echelon form. The bold elements are of importance and the rows they reside are called pivot rows. Apply the row elementary operation we get the normal form</p>
-<p><span class="math inline">\(\bordermatrix{ &amp; cd,2 &amp; bc,1 &amp; ab,1 &amp; z_1,2 &amp; z_2,3 \cr  d+c,1 &amp; \textbf{1} &amp; 0 &amp; 0 &amp; 0 &amp; 0 \cr  c+b,1 &amp; 0 &amp; \textbf{1} &amp; 0 &amp; 0 &amp; 0 \cr  b+a,0 &amp; 0 &amp; 0 &amp; \textbf{1} &amp; 0 &amp; 0 \cr  a,0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 \cr}\)</span>.</p>
-<p>Now we deal with <span class="math inline">\(\partial_2\)</span>. At first glance we may think it is a little hard to write down <span class="math inline">\(\partial_2\)</span> with respect to <span class="math inline">\(\{z_1, z_2\}\)</span>, but indeed it is quite easy. Generally <span class="math inline">\(z_i\)</span> is obtained by addition of pivot columns so <span class="math inline">\(z_i\)</span> is the sum of its leading term and a linear combination of pivot simplices. For this reason we only have to look at the coefficients of <span class="math inline">\(ac\)</span> and <span class="math inline">\(ad\)</span> in <span class="math inline">\(\partial abc\)</span> and <span class="math inline">\(\partial acd\)</span> to determine <span class="math inline">\(\partial_2\)</span> with respect to <span class="math inline">\(\{z_1, z_2\}\)</span>, which is <span class="math inline">\(\bordermatrix{ &amp; abc,4 &amp; acd,5 \cr  z_2, 3 &amp; 1 &amp; 1 \cr  z_1, 2 &amp; 0 &amp; 1 \cr}\)</span>, Perform column operation, we get <span class="math inline">\(\bordermatrix{ &amp; abc,4 &amp; abc+acd,5 \cr  z_2, 3 &amp; 1 &amp; 0 \cr  z_1, 2 &amp; 0 &amp; 1 \cr}\)</span>.</p>
-<p>Now our new basis is <span class="math inline">\(\{ a, b+a, c+b, d+c, ab, bc, cd, ad+cd+bc+ab, ac+bc+ab, abc, abc+acd \}\)</span> and <span class="math inline">\(F = \{ 1 \}\)</span> and the pairs of <span class="math inline">\(G\)</span> and <span class="math inline">\(H\)</span> are <span class="math inline">\((2,5), (3,6), (4,7), (8,11)\)</span>, and <span class="math inline">\((9, 10)\)</span>. The barcodes of this filtration is thus <span class="math inline">\(\{[1,2), [0,1), [3,4), [2,5), [0, \infty) \}\)</span>. Barcodes infered from <span class="math inline">\(\partial_1\)</span> and <span class="math inline">\(\partial_2\)</span> matrices are related to <span class="math inline">\(H_0\)</span> and <span class="math inline">\(H_1\)</span> respectively. You may note that other new basis exist, like <span class="math inline">\(\{ a, b+a, c+b, d+b, ab, bc, cd+bc, ad+cd+bc+ab, ac+bc+ab, abc, abc+acd \}\)</span>, but corresponds to the same barcodes, which is the information we care most about.</p>
-<p>We can apply persistent homology to atoms of proteins to extract features. An straightforward attempt to do it can be found in [Xia &amp; Wei, 2014]. A more sophiscated approach distinguish different chemical elements such as C, H, O etc. This approach extracts more features.</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
@@ -242,10 +167,9 @@ For simplicity, throughout this section we use <span class="math inline">\(\intg
       <meta itemprop="name" content="Xiaoqi's Website">
     </span>
       <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/06/10/short_note/" class="post-title-link" itemprop="url">test</a>
-        </h2>
+        <h1 class="post-title" itemprop="name headline">
+          test
+        </h1>
 
         <div class="post-meta">
             <span class="post-meta-item">
@@ -269,7 +193,7 @@ For simplicity, throughout this section we use <span class="math inline">\(\intg
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="introduction">Introduction</h1>
+        <h1 id="introduction">Introduction</h1>
 <p>A filtration <span class="math inline">\(C=\{C_r | r \in \mathbb R\}\)</span> is a group of finite simplicial complex indexed over real numbers such that each <span class="math inline">\(K_a\)</span> is a simplicial complex and <span class="math inline">\(C_a \subset C_b\)</span> for <span class="math inline">\(a \leq b\)</span>. Let <span class="math inline">\(C_{-\infty}= \bigcap C_a\)</span> and <span class="math inline">\(C_{\infty} = \bigcup C_a\)</span>.</p>
 <p>Sometimes we just use <span class="math inline">\(C_i\)</span> and <span class="math inline">\(C_{i+1}\)</span> to emphasis order. The filtration has infinite version but in this note we focus on finite filtration. A finite filtration can be seen as a series of simplex addition, so we often represented as a list and feed it into algorithm.</p>
 <p>For each <span class="math inline">\(K_i\)</span> one can compute its homology. The inclusion map from <span class="math inline">\(C_i\)</span> to <span class="math inline">\(C_{i+1}\)</span> induce homomorphism between homology groups. These homology groups and induced homomorphisms is one example of the so called persistent module.</p>
@@ -304,92 +228,33 @@ For simplicity, throughout this section we use <span class="math inline">\(\intg
 <h1 id="application-to-molecular-biology">Application to molecular biology</h1>
 <p>We can apply persistent homology to atoms of proteins to extract features. An straightforward attempt to do it can be found in [Xia &amp; Wei, 2014]. A more sophiscated approach distinguish different chemical elements such as C, H, O etc. This approach extracts more features.</p>
 
-      
     </div>
 
     
     
     
+
       <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/06/09/hello-world/">
+        
 
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Xiaoqi Wei">
-      <meta itemprop="description" content="">
-    </span>
 
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Xiaoqi's Website">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/06/09/hello-world/" class="post-title-link" itemprop="url">Hello World</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2020-06-09 23:36:55" itemprop="dateCreated datePublished" datetime="2020-06-09T23:36:55-04:00">2020-06-09</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="quick-start">Quick Start</h2>
-<h3 id="create-a-new-post">Create a new post</h3>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="run-server">Run server</h3>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="generate-static-files">Generate static files</h3>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="deploy-to-remote-sites">Deploy to remote sites</h3>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
-      
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/06/09/hello-world/" rel="prev" title="Hello World">
+      <i class="fa fa-chevron-left"></i> Hello World
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2020/06/10/test/" rel="next" title="test">
+      test <i class="fa fa-chevron-right"></i>
+    </a></div>
     </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
       </footer>
+    
   </article>
   
   
-  
-
-
   
 
 
@@ -442,6 +307,7 @@ For simplicity, throughout this section we use <span class="math inline">\(\intg
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#introduction"><span class="nav-number">1.</span> <span class="nav-text">Introduction</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#algorithm"><span class="nav-number">2.</span> <span class="nav-text">Algorithm</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#application-to-molecular-biology"><span class="nav-number">3.</span> <span class="nav-text">Application to molecular biology</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
