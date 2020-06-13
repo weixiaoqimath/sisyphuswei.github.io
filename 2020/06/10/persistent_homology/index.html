@@ -28,7 +28,7 @@
 <meta property="og:description" content="Introduction A filtration \(X&#x3D;\{X_r | r \in \mathbb R\}\) is a series of finite simplicial complex indexed over real numbers such that each \(X_a\) is a simplicial complex and \(X_a \subset X_b\) for">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-06-10T13:47:54.000Z">
-<meta property="article:modified_time" content="2020-06-13T11:42:10.692Z">
+<meta property="article:modified_time" content="2020-06-13T22:58:36.428Z">
 <meta property="article:author" content="Xiaoqi Wei">
 <meta property="article:tag" content="topology">
 <meta property="article:tag" content="math">
@@ -187,7 +187,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-06-13 07:42:10" itemprop="dateModified" datetime="2020-06-13T07:42:10-04:00">2020-06-13</time>
+                <time title="Modified: 2020-06-13 18:58:36" itemprop="dateModified" datetime="2020-06-13T18:58:36-04:00">2020-06-13</time>
               </span>
 
           
@@ -204,8 +204,10 @@
         <h1 id="introduction">Introduction</h1>
 <p>A filtration <span class="math inline">\(X=\{X_r | r \in \mathbb R\}\)</span> is a series of finite simplicial complex indexed over real numbers such that each <span class="math inline">\(X_a\)</span> is a simplicial complex and <span class="math inline">\(X_a \subset X_b\)</span> for <span class="math inline">\(a \leq b\)</span>. Let <span class="math inline">\(X_{-\infty}= \bigcap X_a\)</span> and <span class="math inline">\(X_{\infty} = \bigcup X_a\)</span>. In this note we focus on finite filtration. A finite filtration can be seen as a series of simplex addition, so we often represented as a list and feed it into algorithm.</p>
 <p>For each <span class="math inline">\(X_i\)</span> one can compute its homology. The inclusion map from <span class="math inline">\(X_i\)</span> to <span class="math inline">\(X_{i+1}\)</span> induce homomorphism between homology groups. These homology groups and induced homomorphisms is one example of the so called persistent module. <a id="more"></a></p>
-<p>A persistence module <span class="math inline">\(M\)</span> is a family of <span class="math inline">\(R-\)</span>modules <span class="math inline">\(M_i\)</span>, together with homomorphisms <span class="math inline">\(f_i : M_i \rightarrow M_{i+1}\)</span>.</p>
-<p>According to [ZC05]<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>, we can equip <span class="math inline">\(R(t)\)</span> with a graded ring structure and equip persistence module with a graded module structure over <span class="math inline">\(R(t)\)</span>. Then by commutative algebra we obtain a classification theorem for finite type persistence module. This classification is indeed a decomposition of persistence module into tiny building blocks called interval modules or intervals. The intuition behind interval is quite simple: as new simplices adding to a complex, new class may born for new cycle, and old class may die for new boundary. The life of a class is encode in its interval. For example, suppose we have two points <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span>, and a new simplex <span class="math inline">\([a, b]\)</span> is added. The existing connected components <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> are merged together. We may say <span class="math inline">\(a\)</span> or <span class="math inline">\(b\)</span> is dead because of <span class="math inline">\([a, b]\)</span>. Or imagine two circles of a cylinder. The cylinder merges two circles together and reduce the number of classes from two to one.</p>
+<blockquote>
+<p>Generally a persistence module <span class="math inline">\(M\)</span> is a family of <span class="math inline">\(R-\)</span>modules <span class="math inline">\(M_i, 1\le i \le n\)</span>, together with homomorphisms <span class="math inline">\(f_i : M_i \rightarrow M_{i+1}\)</span>.</p>
+</blockquote>
+<p>According to [ZC05]<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>, we can think of <span class="math inline">\(M\)</span> as a graded module over <span class="math inline">\(R(t)\)</span>. If <span class="math inline">\(M_i\)</span> are all finitely generated. Then by commutative algebra we can prove that <span class="math inline">\(M\)</span> decomposes uniquely into tiny building blocks called interval modules or intervals. In the context of persistent homology a interval can be intepreted as the life time of a homology class.</p>
 <h1 id="algorithm">Algorithm</h1>
 <p>We first fix some notations. The finite filtration is thought of as adding one simplex <span class="math inline">\(\sigma_i\)</span> at step <span class="math inline">\(i\)</span> to <span class="math inline">\(X_{i-1}\)</span> (<span class="math inline">\(1 \leq i \leq n\)</span>), which is done in time <span class="math inline">\(t_i\)</span>, and <span class="math inline">\(\{t_i\}\)</span> is a non-decreasing sequence. Usually the chain complex of <span class="math inline">\(X_{i}\)</span> is denoted by <span class="math inline">\(C_{\bullet}(X_i)\)</span>. To avoid introduce too many notations, we also use it to denote the module generated by <span class="math inline">\(\{\sigma_1,...,\sigma_i\}\)</span>. For any element in <span class="math inline">\(C_{\bullet}(X_i)\)</span>, its leading term is said to be the <span class="math inline">\(\sigma\)</span> with the largest index. For example <span class="math inline">\(\sigma_1 + \sigma_2 + \sigma_3 \in C_{\bullet}(X_3)\)</span> has leading term <span class="math inline">\(\sigma_3\)</span>. For simplicity, throughout this section we use <span class="math inline">\(\mathbb Z_2\)</span> coefficient.</p>
 <blockquote>
@@ -403,6 +405,7 @@ for i, dgm in enumerate(dgms):
 Since <span class="math inline">\(d\hat{\sigma}_j^* = c_j\sigma_{i+1}^*\)</span>, we update <span class="math display">\[U_{i+1} = U_i - \{i+1\}, V_{i+1} = V_i\cup \{j\}, W_{i+1} = W_i \cup \{i+1\}\]</span> and pair <span class="math inline">\(j\)</span> with <span class="math inline">\(i+1\)</span>.</p></li>
 </ol>
 <p>As the pairing of <span class="math inline">\(V_i\)</span> and <span class="math inline">\(W_i\)</span> is unchanged when the algorithm proceeds, we don't bother to compute <span class="math inline">\(c_v\)</span> and <span class="math inline">\(c_w\)</span>. This can optimize this algorithm.</p>
+<!--pCoh produces the same barcodes as pHrow or pHcol. This is indeed a corollary of universal coefficient theorem for cohomology -->
 <section class="footnotes" role="doc-endnotes">
 <hr />
 <ol>
