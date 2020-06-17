@@ -213,19 +213,27 @@ Since <span class="math inline">\(d\hat{\sigma}_j^* = c_j\sigma_{i+1}^*\)</span>
 <blockquote>
 <p>pCoh produces the same barcodes as pHcol.</p>
 </blockquote>
-<p>This is indeed a byproduct of the proof of the universal coefficient theorem for cohomology (Theorem 3.2 of Hatcher's <em>Algebraic Topology</em>). Though in the literature universal coefficient theorem for cohomology is about chain complex <span class="math inline">\(C\)</span> of free abelian groups (i.e. <span class="math inline">\(\mathbb Z\)</span> homology), the proof remain valid for chain complex <span class="math inline">\(C\)</span> of free <span class="math inline">\(R\)</span>-module where <span class="math inline">\(R\)</span> is a PID. In the proof there is a short exact sequence <span class="math display">\[ 0 \rightarrow \text{Coker}i^*_{n-1} \rightarrow H^n(C;R) \rightarrow \text{Hom}(H_n(C;R),R) \rightarrow 0. \]</span> When <span class="math inline">\(R\)</span> is a field, <span class="math inline">\(\text{Coker}i^*_{n-1}\)</span> is equal to zero since <span class="math inline">\(H_n(C;R)\)</span> is free. So <span class="math inline">\(\rightarrow H_n(C;R)\)</span> is isomorphic to <span class="math inline">\(\rightarrow \text{Hom}(H_n(C;R),R)\)</span> when <span class="math inline">\(R\)</span> is a field. Moreover this isomorphism is natural. So given a filtration <span class="math inline">\(X\)</span> we can show that for <span class="math inline">\(X_i \subset X_j\)</span>, the rank of <span class="math display">\[H^k(X_j; F) \rightarrow H^k(X_i; F)\]</span> is equal to the rank of <span class="math display">\[\text{Hom}(H_k(X_j;F), F) \rightarrow \text{Hom}(H_k(X_i;F), F),\]</span> the adjoint of <span class="math inline">\(H_k(X_i;F)\rightarrow H_k(X_j;F)\)</span>.</p>
+<p>This is indeed a byproduct of the proof of the universal coefficient theorem for cohomology (Theorem 3.2 of Hatcher's <em>Algebraic Topology</em>). Though in the literature universal coefficient theorem for cohomology is about chain complex <span class="math inline">\(C\)</span> of free abelian groups (i.e. <span class="math inline">\(\mathbb Z\)</span> homology), the proof remain valid for chain complex <span class="math inline">\(C\)</span> of free <span class="math inline">\(R\)</span>-module where <span class="math inline">\(R\)</span> is a PID. In the proof there is a short exact sequence <span class="math display">\[ 0 \rightarrow \text{Coker}i^*_{n-1} \rightarrow H^n(C;R) \rightarrow \text{Hom}(H_n(C;R),R) \rightarrow 0. \]</span> When <span class="math inline">\(R\)</span> is a field, <span class="math inline">\(\text{Coker}i^*_{n-1}\)</span> is equal to zero since <span class="math inline">\(H_n(C;R)\)</span> is free. So <span class="math display">\[ H^n(C;R) \cong \text{Hom}(H_n(C;R),R)\]</span> whenever <span class="math inline">\(R\)</span> is a field. Moreover this isomorphism is natural. Suppose <span class="math inline">\(\alpha:C\to C&#39;\)</span> is a chain map.</p>
+<p><span class="math display">\[
+\require{AMScd}
+\begin{CD}
+H^n(C;R) @&gt;{\cong}&gt;&gt; \text{Hom}(H_n(C;R),R);\\
+@AA{\alpha^{\ast}}A @AA{(\alpha_{\ast})^{\ast}}A \\
+H^n(C&#39;;R) @&gt;{\cong}&gt;&gt; \text{Hom}(H_n(C&#39;;R),R);
+\end{CD}
+\]</span></p>
+<p>So given a filtration <span class="math inline">\(X\)</span> we can show that for <span class="math inline">\(X_i \subset X_j\)</span>, the rank of <span class="math display">\[H^k(X_j; F) \rightarrow H^k(X_i; F)\]</span> is equal to the rank of <span class="math display">\[\text{Hom}(H_k(X_j;F), F) \rightarrow \text{Hom}(H_k(X_i;F), F),\]</span> the adjoint of <span class="math inline">\(H_k(X_i;F)\rightarrow H_k(X_j;F)\)</span>.</p>
 <p>We state the following lemma:</p>
 <blockquote>
 <p>Suppose we have a persistent module <span class="math inline">\(\{M_i, f_{i,j}|1\le i &lt; j \le n\}\)</span>. Then its decomposition as interval modules are determined by the rank of <span class="math inline">\(f_{i,j}\)</span>. More precisely, let <span class="math inline">\(c_{i,j}\)</span> be the number of <span class="math inline">\(\mathbb I_{i,j}\)</span> and <span class="math inline">\(\beta_{i,j}\)</span> be the rank of <span class="math inline">\(f_{i,j}\)</span> then <span class="math display">\[c_{i,j}=(\beta_{i,j}-\beta_{i,j+1}) - (\beta_{i-1,j}-\beta_{i-1,j+1}).\]</span></p>
 </blockquote>
 <p>This lemma is true simply because the rank of <span class="math inline">\(f_{i,j}\)</span> is equal to the number of classes that born before step <span class="math inline">\(i+1\)</span> and survive at step <span class="math inline">\(j\)</span>.</p>
-<p>The number of barcode <span class="math inline">\([t_i, t_j)\)</span> corresponds to the number of interval <span class="math inline">\(\mathbb I_{i,j-1}\)</span> for persistent homology and interval <span class="math inline">\(\mathbb I_{n+1-(j-1), n+1-i}\)</span> for persistent cohomology (its persistent module index <span class="math inline">\(i\)</span> corresponds to filtration index <span class="math inline">\(n+1-i\)</span>). By the lemma, <span class="math display">\[
-\begin{align*}
+<p>The number of barcode <span class="math inline">\([t_i, t_j)\)</span> corresponds to the number of interval <span class="math inline">\(\mathbb I_{i,j-1}\)</span> for persistent homology and interval <span class="math inline">\(\mathbb I_{n+1-(j-1), n+1-i}\)</span> for persistent cohomology (its persistent module index <span class="math inline">\(i\)</span> corresponds to filtration index <span class="math inline">\(n+1-i\)</span>). By the lemma,</p>
+<p><span class="math display">\[\begin{align*}
 c_{i,j-1}   &amp; =(\beta_{i,j-1}-\beta_{i,j}) - (\beta_{i-1,j-1}-\beta_{i-1,j}) \\
             &amp; = ( \beta_{n+1 - (j-1), n+1 -i}&#39; - \beta_{n+1-j,n+1-i}&#39; ) - ( \beta_{n+1 -(j-1),n+1-(i-1)}&#39;-\beta_{n+1-j,n+1-{i-1}}&#39;) \\
             &amp; = c_{n+1-(j-1),n+1-i}&#39;. 
-\end{align*}            
-\]</span></p>
+\end{align*}\]</span></p>
 <p>It's reported that pCoh is much faster than pHrow or pHcol even after optimization <a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a>.</p>
 <section class="footnotes" role="doc-endnotes">
 <hr />
