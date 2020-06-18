@@ -225,7 +225,7 @@ H^n(C&#39;;R) @&gt;{\cong}&gt;&gt; \text{Hom}(H_n(C&#39;;R),R);
 <p>So given a filtration <span class="math inline">\(X\)</span> we can show that for <span class="math inline">\(X_i \subset X_j\)</span>, the rank of <span class="math display">\[H^k(X_j; F) \rightarrow H^k(X_i; F)\]</span> is equal to the rank of <span class="math display">\[\text{Hom}(H_k(X_j;F), F) \rightarrow \text{Hom}(H_k(X_i;F), F),\]</span> the adjoint of <span class="math inline">\(H_k(X_i;F)\rightarrow H_k(X_j;F)\)</span>.</p>
 <p>We state the following lemma:</p>
 <blockquote>
-<p>Suppose we have a persistent module <span class="math inline">\(\{M_i, f_{i,j}|1\le i &lt; j \le n\}\)</span>. Then its decomposition as interval modules are determined by the rank of <span class="math inline">\(f_{i,j}\)</span>. More precisely, let <span class="math inline">\(c_{i,j}\)</span> be the number of <span class="math inline">\(\mathbb I_{i,j}\)</span> and <span class="math inline">\(\beta_{i,j}\)</span> be the rank of <span class="math inline">\(f_{i,j}\)</span> then <span class="math display">\[c_{i,j}=(\beta_{i,j}-\beta_{i,j+1}) - (\beta_{i-1,j}-\beta_{i-1,j+1}).\]</span></p>
+<p>Suppose we have a persistent module <span class="math inline">\(\{M_i, f_{i,j}|1\le i &lt; j \le n\}\)</span> (all <span class="math inline">\(f\)</span> are compatible). Then its decomposition as interval modules are determined by the rank of <span class="math inline">\(f_{i,j}\)</span>. More precisely, let <span class="math inline">\(c_{i,j}\)</span> be the number of <span class="math inline">\(\mathbb I_{i,j}\)</span> and <span class="math inline">\(\beta_{i,j}\)</span> be the rank of <span class="math inline">\(f_{i,j}\)</span> then <span class="math display">\[c_{i,j}=(\beta_{i,j}-\beta_{i,j+1}) - (\beta_{i-1,j}-\beta_{i-1,j+1}).\]</span></p>
 </blockquote>
 <p>This lemma is true simply because the rank of <span class="math inline">\(f_{i,j}\)</span> is equal to the number of classes that born before step <span class="math inline">\(i+1\)</span> and survive at step <span class="math inline">\(j\)</span>.</p>
 <p>The number of barcode <span class="math inline">\([t_i, t_j)\)</span> corresponds to the number of interval <span class="math inline">\(\mathbb I_{i,j-1}\)</span> for persistent homology and interval <span class="math inline">\(\mathbb I_{n+1-(j-1), n+1-i}\)</span> for persistent cohomology (its persistent module index <span class="math inline">\(i\)</span> corresponds to filtration index <span class="math inline">\(n+1-i\)</span>). By the lemma,</p>
@@ -234,7 +234,7 @@ c_{i,j-1}   &amp; =(\beta_{i,j-1}-\beta_{i,j}) - (\beta_{i-1,j-1}-\beta_{i-1,j})
             &amp; = ( \beta_{n+1 - (j-1), n+1 -i}&#39; - \beta_{n+1-j,n+1-i}&#39; ) - ( \beta_{n+1 -(j-1),n+1-(i-1)}&#39;-\beta_{n+1-j,n+1-{i-1}}&#39;) \\
             &amp; = c_{n+1-(j-1),n+1-i}&#39;. 
 \end{align*}\]</span></p>
-<p>It's reported that pCoh is much faster than pHrow or pHcol even after optimization <a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a>.</p>
+<p>It's reported that pCoh outperforms even optimized pHrow or pHcol. <a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a>.</p>
 <section class="footnotes" role="doc-endnotes">
 <hr />
 <ol>
